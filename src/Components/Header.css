@@ -1,0 +1,26 @@
+.navbar-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+  background-color: #8eb5e2;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 0 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  .navbar-container {
+    flex-direction: row;
+    height: auto;
+    padding: 20px;
+  }
+
+  .side {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+}
