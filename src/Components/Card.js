@@ -24,7 +24,7 @@ const Card = ({ title, quantity }) => {
           <p className="card-quantity">{Quantity}Kg in stock</p>
           <button className="quantity-button" onClick={increaseQuantity}>+</button>
         </div>
-        <Link to="/Update" className="heading">
+        <Link to="/" className="heading">
           <button className="update-button">Update Stock</button>
         </Link>
       </div>
