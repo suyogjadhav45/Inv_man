@@ -6,7 +6,7 @@ import Card from "./Card";
 const Home = () => {
   return (
     <div className="major-container">
-      <Header />
+      <Header screenname={<h2>IM 101</h2>} />
       <div className="C">
         <Card />
       </div>

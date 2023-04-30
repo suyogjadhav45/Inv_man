@@ -9,6 +9,27 @@
   padding: 0 20px;
 }
 
+.sub-nav{
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  height: 7vh;
+  justify-content: space-between;
+  padding: 0 20px;
+  border: 2px solid #8eb5e2;
+}
+
+.date{
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding-top: 10px;
+}
+
+.screen-num{
+  padding-top: 5px;
+}
+
+
 @media only screen and (max-width: 768px) {
   .navbar-container {
     flex-direction: row;
