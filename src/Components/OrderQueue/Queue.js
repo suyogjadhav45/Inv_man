@@ -10,7 +10,7 @@ const Queue = () => {
         <Sidebar />
       </div>
       <div className="main">
-        <NavBar />
+        <NavBar screenname={<h2>IM 102</h2>}/>
         <QueuePage />
       </div>
     </div>
