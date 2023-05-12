@@ -51,7 +51,7 @@ const QueuePage = () => {
             <h2>Order #{order.orderNumber}</h2>
             <p>{order.details}</p>
             <div className="btn">
-              <Link to="/orderassign" className="update-button">
+              <Link to="/orderdetail" className="update-button">
                 Know More
               </Link>
               <Link to="/orderassign" className="update-button">

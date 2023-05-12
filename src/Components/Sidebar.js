@@ -27,7 +27,7 @@ function Sidebar() {
         <div className="buttons">
           <div className="db-btn">
             <button>
-              <Link to="/home" className="up-btn">Home</Link></button>
+              <Link to="/" className="up-btn">Home</Link></button>
           </div>
           <div className="db-btn">
             <button> <Link to="/logout" className="up-btn">Logout</Link></button>
