@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import "./Card.css";
 
-const Card = ({ id, title, quantity }) => {
+const Card = ({ id, title, quantity, image }) => {
   const [Quantity, setQuantity] = useState(quantity);
 
   const increaseQuantity = () => {
@@ -33,6 +33,7 @@ const Card = ({ id, title, quantity }) => {
           <button className="update-button">Update Stock</button>
         </Link>
       </div>
+      <img src={image} alt={title} />
     </div>
   );
 };
@@ -41,7 +42,7 @@ const Cards = () => {
   const [cardsData, setCardsData] = useState([]);
 
   useEffect(() => {
-    axios.get("https://example.com/api/products")
+    axios.get("https://adminz.onrender.com/api/product/")
       .then(response => {
         setCardsData(response.data);
       })
@@ -56,7 +57,7 @@ const Cards = () => {
         <Card
           key={card.id}
           id={card.id}
-          title={card.title}
+          productname={card.productname}
           quantity={card.quantity}
           image={card.image}
         />
