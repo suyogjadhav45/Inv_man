@@ -59,7 +59,6 @@ const Cards = () => {
           id={card.id}
           productname={card.productname}
           quantity={card.quantity}
-          image={card.image}
         />
       ))}
     </div>
