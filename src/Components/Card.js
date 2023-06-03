@@ -42,7 +42,7 @@ const Cards = () => {
   const [cardsData, setCardsData] = useState([]);
 
   useEffect(() => {
-    axios.get("https://adminz.onrender.com/api/product/")
+    axios.get("https://adminlm.onrender.com/api/product/")
       .then(response => {
         setCardsData(response.data);
       })
