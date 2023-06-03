@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 
 const db = new sqlite3.Database("./db.sqlite3");
 
-const baseURL = "https://agrocart.onrender.com";
+const baseURL = "https://adminlm.onrender.com";
 
 app.get(`${baseURL}/api/product`, (req, res) => {
   db.all("SELECT * FROM Products", (err, rows) => {
