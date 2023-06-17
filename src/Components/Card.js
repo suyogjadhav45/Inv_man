@@ -3,8 +3,9 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import "./Card.css";
 
-const Card = ({ id, productname, quantity, image }) => {
+const Card = ({ id, obj, productname, quantity, image }) => {
   const [Quantity, setQuantity] = useState(quantity);
+  const [objn, setobjn] = useState(obj)
 
   const increaseQuantity = () => {
     setQuantity(parseInt(Quantity) + 1);
@@ -15,6 +16,20 @@ const Card = ({ id, productname, quantity, image }) => {
       setQuantity(parseInt(Quantity) - 1);
     }
   };
+
+  const updateStock = () => {
+    console.log(Quantity)
+    const formData = new FormData();
+    console.log(objn)
+
+    axios.patch(`https://adminlm.onrender.com/api/stock/${obj.id}`, {
+      quantity: Quantity
+    })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => console.log("Error : \n" + error))
+  }
 
   return (
     <div className="card">
@@ -30,7 +45,7 @@ const Card = ({ id, productname, quantity, image }) => {
           </button>
         </div>
         <Link to="/" className="heading">
-          <button className="update-button">Update Stock</button>
+          <button className="update-button" onClick={updateStock}>Update Stock</button>
         </Link>
       </div>
       <img src={image} alt={productname} />
@@ -56,6 +71,7 @@ const Cards = () => {
       {cardsData.map((card) => (
         <Card
           key={card.id}
+          obj={card}
           id={card.id}
           productname={card.productname}
           quantity={card.quantity}
