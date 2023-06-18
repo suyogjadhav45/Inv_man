@@ -2,8 +2,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./Card.css";
+import Alert from "./Alert";
 
-const Card = ({ id, obj, productname, quantity, image }) => {
+
+
+const Card = ({ id, obj, productname, quantity, image,showAlert }) => {
+
+  
   const [Quantity, setQuantity] = useState(quantity);
   const [objn, setobjn] = useState(obj)
 
@@ -17,16 +22,20 @@ const Card = ({ id, obj, productname, quantity, image }) => {
     }
   };
 
+
+
   const updateStock = () => {
     console.log(Quantity)
-    const formData = new FormData();
     console.log(objn)
+
+    
 
     axios.patch(`https://adminlm.onrender.com/api/stock/${obj.id}`, {
       quantity: Quantity
     })
       .then((response) => {
         console.log(response);
+        showAlert(`${productname} Stock Updated Successfully!!`, "success")
       })
       .catch((error) => console.log("Error : \n" + error))
   }
@@ -48,12 +57,25 @@ const Card = ({ id, obj, productname, quantity, image }) => {
           <button className="update-button" onClick={updateStock}>Update Stock</button>
         </Link>
       </div>
-      <img src={image} alt={productname} />
+      {/* <img src={obj.image} alt={productname} /> */}
     </div>
   );
 };
 
 const Cards = () => {
+
+  const [alertval, setAlert] = useState(null)
+
+  const showAlert = (message, type) => {
+    setAlert({
+      msg: message,
+      type: type
+    })
+    setTimeout(() => {
+      setAlert(null)
+    }, 2000);
+  }
+
   const [cardsData, setCardsData] = useState([]);
 
   useEffect(() => {
@@ -68,6 +90,7 @@ const Cards = () => {
 
   return (
     <div className="cards">
+      <Alert alert={alertval} />
       {cardsData.map((card) => (
         <Card
           key={card.id}
@@ -75,6 +98,7 @@ const Cards = () => {
           id={card.id}
           productname={card.productname}
           quantity={card.quantity}
+          showAlert={showAlert}
         />
       ))}
     </div>
