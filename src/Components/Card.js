@@ -37,7 +37,11 @@ const Card = ({ id, obj, productname, quantity, image,showAlert }) => {
         console.log(response);
         showAlert(`${productname} Stock Updated Successfully!!`, "success")
       })
-      .catch((error) => console.log("Error : \n" + error))
+      .catch((error) => {
+        console.log("Error : \n" + error)
+        showAlert(`${productname} Stock Update Failed!!`, "danger")
+
+    })
   }
 
   return (
